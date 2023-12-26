@@ -1,17 +1,19 @@
 import React from 'react';
-import Room from '../components/room'; // Adjust the path based on your project structure
+import Room from '../components/room';
 import '../App.css';
 
-const Catalog = () => {
-  const maxItemsPerRow = 3; // Set your desired maximum items per row
+import Grid from '@mui/material/Grid';
 
+const Catalog = () => {
   return (
-    <div style={{ marginTop: '10vh', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-      {[...Array(10)].map((_, index) => (
-        <Room key={index} />
-      ))}
-      <div style={{ flex: `0 0 ${100 / maxItemsPerRow}%` }}></div>
-      {/* Add an empty div to fill the row and center the last row if needed */}
+    <div style={{marginTop:'10vh'}}>
+      <Grid container spacing={2}>
+        {[...Array(7)].map((_, i) => (
+          <Grid item xs={8} sm={2} md={3} key={i}>
+            <Room/>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };
